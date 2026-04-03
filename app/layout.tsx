@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { FinanceProvider } from '../lib/FinanceContext';
 import Sidebar from '../components/Sidebar/Sidebar';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Financial Dashboard',
@@ -18,11 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <FinanceProvider>
-          <div className="flex min-h-screen w-full">
+          <div className="min-h-screen w-full">
             <Sidebar />
-            <main className="flex-1 md:ml-[260px] p-4 pb-24 md:p-8 md:pb-8 max-w-full md:max-w-[calc(100vw-260px)]">
+            <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
               {children}
             </main>
           </div>

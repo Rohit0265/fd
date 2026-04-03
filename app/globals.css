@@ -3,21 +3,20 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @layer base {
-  html {
-    font-size: 18px; /* Scales up all Tailwind rem variables by 12.5% */
+  body {
+    @apply bg-gray-50 text-slate-900 antialiased transition-colors duration-300;
   }
 
-  body {
-    @apply bg-slate-50 text-slate-900 transition-colors duration-300 text-xl font-medium tracking-wide;
-  }
-  
   [data-theme="dark"] body {
-    @apply bg-slate-900 text-slate-50;
+    @apply bg-slate-950 text-slate-50;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-slate-800;
   }
 }
 
 @layer utilities {
-  /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -30,5 +29,17 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-slate-300 dark:bg-slate-600;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold tracking-tight text-slate-900 dark:text-white;
+  }
+
+  .page-subtitle {
+    @apply mt-2 text-base text-slate-600 dark:text-slate-400;
   }
 }

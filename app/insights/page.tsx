@@ -84,12 +84,12 @@ export default function InsightsPage() {
   return (
     <div className="flex flex-col gap-8">
       <header className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white m-0">Financial Insights</h1>
-        <p className="text-slate-600 dark:text-slate-400 m-0 text-base">Discover patterns and understand your spending habits.</p>
+        <h1 className="page-title m-0">Financial Insights</h1>
+        <p className="page-subtitle m-0">Discover patterns and understand your spending habits.</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 flex items-start gap-4 shadow-sm">
+        <div className="surface-card flex items-start gap-4 p-6">
           <div className="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center shrink-0">
             <Award className="text-indigo-600 dark:text-indigo-400" size={24} />
           </div>
@@ -100,7 +100,7 @@ export default function InsightsPage() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 flex items-start gap-4 shadow-sm">
+        <div className="surface-card flex items-start gap-4 p-6">
           <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center shrink-0">
             {insights.expenseChange > 0 ? (
               <TrendingUp className="text-rose-600 dark:text-rose-400" size={24} />
@@ -117,7 +117,7 @@ export default function InsightsPage() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 flex items-start gap-4 shadow-sm md:col-span-2 lg:col-span-1">
+        <div className="rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-6 shadow-sm dark:border-amber-800 dark:from-amber-950 dark:to-orange-950 md:col-span-2 lg:col-span-1">
           <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
             <AlertCircle className="text-amber-500 dark:text-amber-400" size={24} />
           </div>
@@ -128,8 +128,8 @@ export default function InsightsPage() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm flex flex-col">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white mt-0 mb-6">Top 5 Expense Categories</h3>
+      <div className="surface-card flex flex-col p-6 lg:p-8">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0 mb-6">Top 5 Expense Categories</h3>
         <div className="h-[350px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={insights.categoryData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>

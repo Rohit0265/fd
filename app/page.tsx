@@ -69,35 +69,35 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col gap-8">
       <header className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white m-0 tracking-tight">Dashboard Overview</h1>
-        <p className="text-slate-600 dark:text-slate-400 m-0 text-base">Welcome back! Here's your financial summary.</p>
+        <h1 className="page-title m-0">Dashboard Overview</h1>
+        <p className="page-subtitle m-0">Welcome back! Here&apos;s your financial summary.</p>
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+        <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-6 shadow-sm transition-all duration-200 hover:shadow-lg dark:border-blue-900 dark:from-blue-950 dark:to-blue-900">
           <div className="flex justify-between items-center mb-4">
-            <span className="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Total Balance</span>
-            <div className="w-10 h-10 rounded-md flex items-center justify-center bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">
+            <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider dark:text-slate-300">Total Balance</span>
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/70 text-blue-600 dark:bg-white/10 dark:text-blue-400">
               <Wallet size={20} />
             </div>
           </div>
           <div className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">${totalBalance.toLocaleString()}</div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+        <div className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 shadow-sm transition-all duration-200 hover:shadow-lg dark:border-emerald-900 dark:from-emerald-950 dark:to-emerald-900">
           <div className="flex justify-between items-center mb-4">
-            <span className="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Total Income</span>
-            <div className="w-10 h-10 rounded-md flex items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
+            <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider dark:text-slate-300">Total Income</span>
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/70 text-emerald-600 dark:bg-white/10 dark:text-emerald-400">
               <ArrowUpRight size={20} />
             </div>
           </div>
           <div className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">${totalIncome.toLocaleString()}</div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+        <div className="rounded-2xl border border-rose-200 bg-gradient-to-br from-rose-50 to-rose-100 p-6 shadow-sm transition-all duration-200 hover:shadow-lg dark:border-rose-900 dark:from-rose-950 dark:to-rose-900">
           <div className="flex justify-between items-center mb-4">
-            <span className="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Total Expenses</span>
-            <div className="w-10 h-10 rounded-md flex items-center justify-center bg-rose-50 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400">
+            <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider dark:text-slate-300">Total Expenses</span>
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/70 text-rose-600 dark:bg-white/10 dark:text-rose-400">
               <ArrowDownRight size={20} />
             </div>
           </div>
@@ -106,8 +106,8 @@ export default function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm flex flex-col">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white mt-0 mb-6">Balance Trend</h3>
+        <div className="surface-card lg:col-span-2 p-6 lg:p-8 flex flex-col">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0 mb-6">Balance Trend</h3>
           <div className="h-[300px] flex-1 min-h-[250px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={balanceTrend} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -124,8 +124,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="lg:col-span-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-sm flex flex-col">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white mt-0 mb-6">Spending Breakdown</h3>
+        <div className="surface-card lg:col-span-1 p-6 lg:p-8 flex flex-col">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0 mb-6">Spending Breakdown</h3>
           <div className="h-[300px] flex-1 min-h-[250px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>

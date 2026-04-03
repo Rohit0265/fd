@@ -96,21 +96,21 @@ export default function TransactionsPage() {
     <div className="flex flex-col gap-8">
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white m-0">Transactions</h1>
-          <p className="text-slate-600 dark:text-slate-400 mt-2 mb-0 text-base">View and manage your financial activity.</p>
+          <h1 className="page-title m-0">Transactions</h1>
+          <p className="page-subtitle mb-0">View and manage your financial activity.</p>
         </div>
         <div className="flex gap-3">
           <div className="relative">
             <button 
               onClick={() => setIsExportMenuOpen(!isExportMenuOpen)}
-              className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-3 rounded-md font-medium transition-colors border border-slate-200 dark:border-slate-700 disabled:opacity-50 h-full"
+              className="flex h-full items-center gap-2 rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 font-medium text-slate-700 transition-colors hover:bg-slate-200 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               disabled={filteredAndSorted.length === 0}
             >
               <Download size={18} />
               <span className="hidden sm:inline">Export</span>
             </button>
             {isExportMenuOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md shadow-lg z-20 flex flex-col overflow-hidden">
+              <div className="absolute right-0 z-20 mt-2 flex w-40 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-800">
                 <button 
                   onClick={() => { exportCSV(); setIsExportMenuOpen(false); }} 
                   className="px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 text-left hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
@@ -128,7 +128,7 @@ export default function TransactionsPage() {
           </div>
           {role === "Admin" && (
             <button 
-              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-md font-medium transition-colors"
+              className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-medium text-white transition-colors hover:bg-blue-700"
               onClick={() => setIsAddModalOpen(true)}
             >
               <Plus size={20} />
@@ -138,7 +138,7 @@ export default function TransactionsPage() {
         </div>
       </header>
 
-      <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 flex-wrap">
+      <div className="surface-card flex flex-col gap-4 p-5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <div className="relative flex-1 min-w-[250px]">
           <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input 
@@ -146,7 +146,7 @@ export default function TransactionsPage() {
             placeholder="Search by description or category..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full py-3 pr-4 pl-10 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-4 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           />
         </div>
 
@@ -156,7 +156,7 @@ export default function TransactionsPage() {
             <select 
               value={filterType} 
               onChange={(e) => setFilterType(e.target.value as any)}
-              className="appearance-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md py-3 pr-8 pl-10 text-slate-900 dark:text-white text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-8 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             >
               <option value="all">All Types</option>
               <option value="income">Income</option>
@@ -168,7 +168,7 @@ export default function TransactionsPage() {
             <select 
               value={sortOrder} 
               onChange={(e) => setSortOrder(e.target.value as any)}
-              className="appearance-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md py-3 px-4 md:pr-8 text-slate-900 dark:text-white text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 py-3 px-4 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white md:pr-8"
             >
               <option value="date-desc">Newest First</option>
               <option value="date-asc">Oldest First</option>
@@ -179,22 +179,22 @@ export default function TransactionsPage() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm overflow-hidden w-full">
+      <div className="surface-card w-full overflow-hidden">
         <div className="overflow-x-auto w-full">
           <table className="w-full min-w-[600px] border-collapse text-left">
             <thead>
               <tr>
-                <th className="p-4 md:px-6 md:py-4 text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">Date</th>
-                <th className="p-4 md:px-6 md:py-4 text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">Description</th>
-                <th className="p-4 md:px-6 md:py-4 text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">Category</th>
-                <th className="p-4 md:px-6 md:py-4 text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">Amount</th>
-                {role === "Admin" && <th className="p-4 md:px-6 md:py-4 text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">Actions</th>}
+                <th className="border-b border-slate-200 bg-slate-50 p-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400 md:px-6 md:py-4">Date</th>
+                <th className="border-b border-slate-200 bg-slate-50 p-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400 md:px-6 md:py-4">Description</th>
+                <th className="border-b border-slate-200 bg-slate-50 p-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400 md:px-6 md:py-4">Category</th>
+                <th className="border-b border-slate-200 bg-slate-50 p-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400 md:px-6 md:py-4">Amount</th>
+                {role === "Admin" && <th className="border-b border-slate-200 bg-slate-50 p-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400 md:px-6 md:py-4">Actions</th>}
               </tr>
             </thead>
             <tbody>
               {filteredAndSorted.length > 0 ? (
                 filteredAndSorted.map(tx => (
-                  <tr key={tx.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700 last:border-0">
+                  <tr key={tx.id} className="border-b border-slate-100 hover:bg-slate-50 transition-colors dark:border-slate-800 dark:hover:bg-slate-800/50 last:border-0">
                     <td className="p-4 md:px-6 md:py-4 text-slate-900 dark:text-white text-sm whitespace-nowrap">
                       {new Date(tx.date).toLocaleDateString()}
                     </td>
@@ -209,7 +209,7 @@ export default function TransactionsPage() {
                       </div>
                     </td>
                     <td className="p-4 md:px-6 md:py-4">
-                      <span className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-xs font-medium whitespace-nowrap">
+                      <span className="inline-block whitespace-nowrap rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-700 dark:text-slate-300">
                         {tx.category}
                       </span>
                     </td>
@@ -244,8 +244,8 @@ export default function TransactionsPage() {
       </div>
 
       {isAddModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-xl p-8 w-full max-w-lg shadow-xl border border-slate-200 dark:border-slate-700 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-8 shadow-xl dark:border-slate-700 dark:bg-slate-800">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 mt-0">Add Transaction</h2>
             <form onSubmit={handleAdd} className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
