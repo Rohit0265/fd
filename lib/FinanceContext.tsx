@@ -29,7 +29,7 @@ interface FinanceContextType {
 
 const FinanceContext = createContext<FinanceContextType | undefined>(undefined);
 
-// Generate some mock data for the last 30 days
+// mock data for the last 30 days
 const generateMockData = (): Transaction[] => {
   const data: Transaction[] = [];
   const categories = {
@@ -111,8 +111,6 @@ export const FinanceProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-  // Don't render children until mounted to prevent hydration mismatch for theme-dependent content
-  // actually, it's better to just render it and handle it in css or standard ways, but this is simple.
   
   return (
     <FinanceContext.Provider
