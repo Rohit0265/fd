@@ -1,6 +1,6 @@
 # Financial Dashboard
 
-Financial Dashboard is a personal finance dashboard built with Next.js. It gives users a simple way to review account activity, monitor income vs. expenses, and spot spending patterns through a clean multi-page interface.
+This is a personal finance dashboard built with Next.js. It gives users a simple way to review account activity, monitor income vs. expenses, and spot spending patterns through a clean multi-page interface.
 
 ## Product Overview
 
