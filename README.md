@@ -83,7 +83,3 @@ Then open `http://localhost:3000`.
 - data resets on refresh
 - insights are based on mock/generated transaction data
 - role switching is UI-level only
-
-
-
-
