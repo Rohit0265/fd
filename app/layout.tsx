@@ -7,7 +7,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Finance Dashboard',
+  title: 'Financial Dashboard',
   description: 'Clean and interactive finance dashboard interface',
 };
 

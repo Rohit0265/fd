@@ -220,7 +220,7 @@ export function FinanceDashboard() {
       <section className="hero">
         <div>
           <p className="eyebrow">Personal finance control center</p>
-          <h1>Finance Dashboard</h1>
+          <h1>Financial Dashboard</h1>
           <p className="hero-copy">
             Track balances, scan transactions, compare monthly spending, and demo
             role-based actions in a single clean workspace.

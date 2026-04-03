@@ -30,11 +30,8 @@ export default function Sidebar() {
 
   return (
     <aside className="fixed bottom-0 md:top-0 left-0 w-full h-[70px] md:w-[260px] md:h-screen bg-white dark:bg-slate-800 border-t md:border-t-0 md:border-r border-slate-200 dark:border-slate-700 flex flex-row md:flex-col px-4 md:px-4 md:py-6 z-10 shadow-md md:shadow-none transition-all duration-300">
-      <div className="hidden md:flex items-center gap-3 px-4 pb-8 text-slate-900 dark:text-white">
-        <div className="w-8 h-8 rounded-md bg-indigo-600 text-white flex items-center justify-center font-bold text-xl">
-          $
-        </div>
-        <h2 className="text-xl font-semibold m-0 tracking-tight">FinDash</h2>
+      <div className="hidden md:flex items-center px-4 pb-8 text-slate-900 dark:text-white">
+        <h2 className="text-xl font-semibold m-0 tracking-tight">Financial Dashboard</h2>
       </div>
 
       <nav className="flex flex-row md:flex-col gap-1 md:gap-2 flex-1 justify-start items-center md:items-stretch w-full md:w-auto">
